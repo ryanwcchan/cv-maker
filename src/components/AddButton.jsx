@@ -1,7 +1,12 @@
-export default function AddButton() {
+export default function AddButton(props) {
+  const { onClick } = props;
+
   return (
-    <div className="add-btn">
+    <>
+      <button className="add-btn" onClick={onClick} >
         <i className="fa-solid fa-plus"></i>
-    </div>
+      </button>
+    </>
+    
   )
 }

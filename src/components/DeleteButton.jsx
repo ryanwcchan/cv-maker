@@ -1,7 +1,10 @@
 export default function DeleteButton() {
   return (
-    <div className="delete-btn">
-        <i className="fa-solid fa-trash"></i>
-    </div>
+    <>
+      <button className="delete-btn">
+          <i className="fa-solid fa-trash"></i>
+      </button>
+    </>
+    
   )
 }

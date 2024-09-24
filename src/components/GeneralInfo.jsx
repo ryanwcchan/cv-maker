@@ -13,9 +13,7 @@ export default function GeneralInfo() {
             <div className="general-info-container">
                 <h1 className="cv-name">JOHN SMITH</h1>
                 <div className="contact-info">
-                    <h2>johnsmith@email.com</h2>
-                    <h2>(123)-456-7890</h2>
-                    <h2>123 Main St, Anytown, USA 12345</h2>
+                    <h2>johnsmith@email.com | (123)-456-7890 | 123 Main St, Anytown, USA 12345</h2>
                 </div>
             </div>
             {/* <div className="general-info-container">
