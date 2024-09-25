@@ -1,5 +1,5 @@
 import { useState } from "react";
-import DeleteButton from './DeleteButton'
+import DeleteButton from './buttons/DeleteButton'
 
 export default function Hoverable({ children, handleDelete }) {
   const [isHovered, setIsHovered] = useState(false);

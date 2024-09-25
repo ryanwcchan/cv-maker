@@ -3,6 +3,7 @@ import GeneralInfo from "./components/GeneralInfo";
 import Education from './components/Education';
 import Experience from './components/Experience';
 import Header from './components/Header';
+import Section from './components/Section';
 import { useState } from 'react';
 
 export default function App() {
