@@ -1,9 +1,10 @@
 import AddButton from "./AddButton"
 import EducationCard from "./EducationCard"
+import Hoverable from "./Hoverable"
 
 export default function Education(props) {
 
-    const { educationList, addEducationCard } = props
+    const { educationList, addEducationCard, removeEducationCard } = props
     return (
         <div className="education-container">
             <div className="section-header">
@@ -14,14 +15,16 @@ export default function Education(props) {
             </div>
             
             <div className="card-container">
-                {educationList.map((card) => {
-                    return (
-                        <EducationCard 
-                            key={card.id} 
-                            id={card.id} 
-                        />
+                {educationList.map((card) => (
+                        <Hoverable key={card.id} handleDelete={() => removeEducationCard(card.id)} >
+                            <div>
+                                <EducationCard 
+                                    id={card.id}
+                                />
+                            </div>
+                        </Hoverable>
                     )
-                })}
+                )}
             </div>
         </div>
     )

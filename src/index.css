@@ -160,9 +160,11 @@ table {
     border: none;
   	outline: none;
 	background: transparent;
-	border-radius: 2rem;
+	border-radius: 50%;
 	background-color: #a7a6a6c3;
 	color: white;
+    width: 20px;
+    height: 20px;
 }
 
 .add-btn:hover {
@@ -172,4 +174,13 @@ table {
 .add-btn i {
 	font-size: 0.7rem;
     padding: 0.2rem;
+}
+
+.delete-btn {
+    position: absolute;
+    color: red;
+    border: none;
+  	outline: none;
+    background: transparent;
+    transform: translateX(-25px);
 }

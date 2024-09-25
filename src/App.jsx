@@ -21,6 +21,14 @@ export default function App() {
         console.log("New education card added.")
     }
 
+    function removeEducationCard(id) {
+        setEducationList(educationList.filter(card => card.id !== id))
+    }
+
+    function removeExperienceCard(id) {
+        setExperienceList(experienceList.filter(card => card.id !== id))
+    }
+
     return (
         <>
             <Header />
@@ -28,11 +36,13 @@ export default function App() {
                 <GeneralInfo />
                 <Education 
                     educationList={educationList} 
-                    addEducationCard={addEducationCard} 
+                    addEducationCard={addEducationCard}
+                    removeEducationCard={removeEducationCard}
                 />
                 <Experience 
                     experienceList={experienceList} 
-                    addExperienceCard={addExperienceCard} 
+                    addExperienceCard={addExperienceCard}
+                    removeExperienceCard={removeExperienceCard} 
                 />
             </div>
         </>
