@@ -7,12 +7,18 @@ import { useState } from 'react';
 
 export default function App() {
     const [educationList, setEducationList] = useState([])
-    // const [experience, setExperience] = useState([])
+    const [experienceList, setExperienceList] = useState([])
+
+    function addExperienceCard() {
+        const newCard = { id: experienceList.length + 1 }
+        setExperienceList([...experienceList, newCard])
+        console.log('New experience card added.')
+    }
 
     const addEducationCard = () => {
         const newCard = { id: educationList.length + 1 }
         setEducationList([...educationList, newCard])
-        console.log("New card added")
+        console.log("New education card added.")
     }
 
     return (
@@ -20,8 +26,14 @@ export default function App() {
             <Header />
             <div className="cv-container">
                 <GeneralInfo />
-                <Education educationList={educationList} addEducationCard={addEducationCard} />
-                <Experience />
+                <Education 
+                    educationList={educationList} 
+                    addEducationCard={addEducationCard} 
+                />
+                <Experience 
+                    experienceList={experienceList} 
+                    addExperienceCard={addExperienceCard} 
+                />
             </div>
         </>
     )
