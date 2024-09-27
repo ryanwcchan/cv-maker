@@ -185,3 +185,7 @@ table {
     background: transparent;
     transform: translateX(-25px);
 }
+
+.placeholder-text {
+    color: gray;
+}

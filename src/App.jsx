@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import GeneralInfo from "./components/GeneralInfo";
-import Education from './components/Education';
-import Experience from './components/Experience';
+import EducationCard from './components/EducationCard';
+import ExperienceCard from './components/ExperienceCard';
 import Header from './components/Header';
 import Section from './components/Section';
 import { useState } from 'react';
@@ -11,13 +11,13 @@ export default function App() {
     const [experienceList, setExperienceList] = useState([])
 
     function addExperienceCard() {
-        const newCard = { id: experienceList.length + 1 }
+        const newCard = { id: Date.now() }
         setExperienceList([...experienceList, newCard])
         console.log('New experience card added.')
     }
 
     const addEducationCard = () => {
-        const newCard = { id: educationList.length + 1 }
+        const newCard = { id: Date.now() }
         setEducationList([...educationList, newCard])
         console.log("New education card added.")
     }
@@ -35,15 +35,19 @@ export default function App() {
             <Header />
             <div className="cv-container">
                 <GeneralInfo />
-                <Education 
-                    educationList={educationList} 
-                    addEducationCard={addEducationCard}
-                    removeEducationCard={removeEducationCard}
+                <Section
+                    sectionTitle="Education" 
+                    cardList={educationList} 
+                    addCard={addEducationCard} 
+                    removeCard={removeEducationCard} 
+                    CardComponent={EducationCard}
                 />
-                <Experience 
-                    experienceList={experienceList} 
-                    addExperienceCard={addExperienceCard}
-                    removeExperienceCard={removeExperienceCard} 
+                <Section
+                    sectionTitle="Experience" 
+                    cardList={experienceList} 
+                    addCard={addExperienceCard} 
+                    removeCard={removeExperienceCard} 
+                    CardComponent={ExperienceCard}
                 />
             </div>
         </>
