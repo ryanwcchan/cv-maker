@@ -10,10 +10,18 @@ export default function App() {
     const [educationList, setEducationList] = useState([
         { id: 1, university: "", degree: "", location: "", graduationDate: "" }
     ])
-    const [experienceList, setExperienceList] = useState([])
+    const [experienceList, setExperienceList] = useState([
+        { company: "", location: "", jobTitle: "", startFinish: "" }
+    ])
 
     function updateEducationCard(field, id, newValue) {
         setEducationList(educationList.map(card => 
+            card.id === id ? { ...card, [field]: newValue } : card
+        ))
+    }
+
+    function updateExperienceCard(field, id, newValue) {
+        setExperienceList(experienceList.map(card => 
             card.id === id ? { ...card, [field]: newValue } : card
         ))
     }
@@ -57,6 +65,7 @@ export default function App() {
                     addCard={addExperienceCard} 
                     removeCard={removeExperienceCard} 
                     CardComponent={ExperienceCard}
+                    updateCard={updateExperienceCard}
                 />
             </div>
         </>

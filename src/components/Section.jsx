@@ -24,7 +24,7 @@ export default function Section({
             <div>
               <CardComponent 
                 id={card.id}
-                cardData={cardList}
+                cardData={card}
                 updateCard={updateCard}                 
               />
             </div>

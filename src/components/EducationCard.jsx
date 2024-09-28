@@ -1,4 +1,3 @@
-import { useState } from "react"
 import EditableField from "./EditableField"
 
 export default function EducationCard({ id, cardData, updateCard }) {
