@@ -1,8 +1,12 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function EditableField({ value, onSave, placeholder }) {
     const [isEditing, setIsEditing] = useState(false)
-    const [newValue, setNewValue] = useState(value)
+    const [newValue, setNewValue] = useState(value || "")
+
+    useEffect(() => {
+        setNewValue(value || "");
+    }, [value]);
 
     const handleSave = () => {
         setIsEditing(false)
@@ -22,9 +26,9 @@ export default function EditableField({ value, onSave, placeholder }) {
     ) : (
         <span 
             onClick={() => setIsEditing(true)}
-            className={value ? "normal-text" : "placeholder-text"}      
+            className={newValue ? "normal-text" : "placeholder-text"}      
         >
-            {value || placeholder}
+            {newValue || placeholder}
         </span>
     )
 }

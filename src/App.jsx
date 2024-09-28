@@ -7,8 +7,16 @@ import Section from './components/Section';
 import { useState } from 'react';
 
 export default function App() {
-    const [educationList, setEducationList] = useState([])
+    const [educationList, setEducationList] = useState([
+        { id: 1, university: "", degree: "", location: "", graduationDate: "" }
+    ])
     const [experienceList, setExperienceList] = useState([])
+
+    function updateEducationCard(field, id, newValue) {
+        setEducationList(educationList.map(card => 
+            card.id === id ? { ...card, [field]: newValue } : card
+        ))
+    }
 
     function addExperienceCard() {
         const newCard = { id: Date.now() }
@@ -17,7 +25,7 @@ export default function App() {
     }
 
     const addEducationCard = () => {
-        const newCard = { id: Date.now() }
+        const newCard = { id: Date.now(), university: "", degree: "", location: "", graduationDate: "" }
         setEducationList([...educationList, newCard])
         console.log("New education card added.")
     }
@@ -41,6 +49,7 @@ export default function App() {
                     addCard={addEducationCard} 
                     removeCard={removeEducationCard} 
                     CardComponent={EducationCard}
+                    updateCard={updateEducationCard}
                 />
                 <Section
                     sectionTitle="Experience" 

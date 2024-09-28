@@ -6,7 +6,8 @@ export default function Section({
   cardList,
   addCard,
   removeCard,
-  CardComponent
+  CardComponent,
+  updateCard
 }) {
   return (
     <div className="section">
@@ -21,7 +22,11 @@ export default function Section({
         {cardList.map((card) => (
           <Hoverable key={card.id} handleDelete={() => removeCard(card.id)} >
             <div>
-              <CardComponent id={card.id} />
+              <CardComponent 
+                id={card.id}
+                cardData={cardList}
+                updateCard={updateCard}                 
+              />
             </div>
           </Hoverable>
         ))}

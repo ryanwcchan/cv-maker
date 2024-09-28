@@ -1,33 +1,42 @@
 import { useState } from "react"
 import EditableField from "./EditableField"
 
-export default function EducationCard() {
-  const [inputValue, setInputValue] = useState({
-    university: "University"
-  })
-
-  function updateCard(field, value) {
-    setInputValue((prevState) => ({
-      ...prevState, [field]: value
-    }))
-  }
+export default function EducationCard({ id, cardData, updateCard }) {
 
   return (
     <div className="education-card">
       <div className="card-header">
-        <div>
+        <div className="card-top-row">
           <h1>
             <EditableField
-              value={inputValue.university}
-              onSave={(newValue) => updateCard("university", newValue)}
+              value={cardData.university}
+              onSave={(newValue) => updateCard("university", id, newValue)}
               placeholder={"University"}
             />
           </h1>
-          <h2>Degree</h2>
+          <h2>
+            <EditableField
+              value={cardData.degree}
+              onSave={(newValue) => updateCard("degree", id, newValue)}
+              placeholder={"Degree"}
+            />
+          </h2>
         </div>
-        <div>
-          <h1>City, State</h1>
-          <h2>Graduation Date: Date</h2>
+        <div className="card-bottom-row">
+          <h1>
+            <EditableField
+                value={cardData.location}
+                onSave={(newValue) => updateCard("location", id, newValue)}
+                placeholder={"City, State"}
+            />
+          </h1>
+          <h2>
+            <EditableField
+                value={cardData.graduationDate}
+                onSave={(newValue) => updateCard("graduationDate", id, newValue)}
+                placeholder={"Graduation Date"}
+            />
+          </h2>
         </div>
       </div>
     </div>

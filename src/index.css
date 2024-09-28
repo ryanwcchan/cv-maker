@@ -189,3 +189,14 @@ table {
 .placeholder-text {
     color: gray;
 }
+
+.editable-input {
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    background-color: var(--beige);
+    width: auto;
+    font-size: inherit;
+    line-height: inherit;
+}
