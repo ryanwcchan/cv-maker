@@ -21,13 +21,11 @@ export default function Section({
       <div className="card-container">
         {cardList.map((card) => (
           <Hoverable key={card.id} handleDelete={() => removeCard(card.id)} >
-            <div>
               <CardComponent 
                 id={card.id}
                 cardData={card}
                 updateCard={updateCard}                 
               />
-            </div>
           </Hoverable>
         ))}
       </div>

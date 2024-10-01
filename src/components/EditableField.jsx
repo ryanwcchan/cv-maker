@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 export default function EditableField({ value, onSave, placeholder }) {
     const [isEditing, setIsEditing] = useState(false)
     const [newValue, setNewValue] = useState(value || "")
-
+    
     useEffect(() => {
         setNewValue(value || "");
     }, [value]);
@@ -22,13 +22,17 @@ export default function EditableField({ value, onSave, placeholder }) {
             autoFocus
             className="editable-input"
             placeholder={placeholder}
+            style={{ 
+                width: `${Math.max(newValue.length, placeholder.length)}ch`,
+                minWidth: `${placeholder.length}ch`, 
+            }}
         />
     ) : (
-        <span 
+        <div 
             onClick={() => setIsEditing(true)}
             className={newValue ? "normal-text" : "placeholder-text"}      
         >
             {newValue || placeholder}
-        </span>
+        </div>
     )
 }

@@ -190,13 +190,31 @@ table {
     color: gray;
 }
 
+.normal-text, .placeholder-text {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+}
+
 .editable-input {
     border: none;
     outline: none;
     padding: 0;
     margin: 0;
     background-color: var(--beige);
-    width: auto;
+    height: inherit;
+    width: 100%;
+    height: 16px;
     font-size: inherit;
+    font-family: inherit;
     line-height: inherit;
+    box-sizing: border-box;
+}
+
+.bullet-points li {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex: 1;
 }

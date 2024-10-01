@@ -1,18 +1,25 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
 import GeneralInfo from "./components/GeneralInfo";
 import EducationCard from './components/EducationCard';
 import ExperienceCard from './components/ExperienceCard';
 import Header from './components/Header';
 import Section from './components/Section';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function App() {
     const [educationList, setEducationList] = useState([
         { id: 1, university: "", degree: "", location: "", graduationDate: "" }
     ])
     const [experienceList, setExperienceList] = useState([
-        { company: "", location: "", jobTitle: "", startFinish: "" }
+        { id: 1, company: "", location: "", jobTitle: "", startFinish: "", firstBullet: "", secondBullet: "", thirdBullet: "" }
     ])
+
+    useEffect(() => {
+        console.log('Education List:', educationList);
+      }, [educationList]);
+
+    useEffect(() => {
+        console.log('Experience List:', experienceList);
+        }, [experienceList]);
 
     function updateEducationCard(field, id, newValue) {
         setEducationList(educationList.map(card => 

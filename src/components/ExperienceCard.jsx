@@ -1,15 +1,16 @@
 import EditableField from "./EditableField"
+import Section from './Section'
 
 export default function ExperienceCard({ id, cardData, updateCard}) {
-  return (
+    return (
     <div className="experience-card">
         <div className="card-header">
             <div>
                 <h1>
-                    <EditableField 
+                    <EditableField
                         value={cardData.company}
                         onSave={(newValue) => updateCard("company", id, newValue)}
-                        placeholder={"Company"}
+                        placeholder={"Company "}
                     />
                 </h1>
                 <h1>
@@ -39,9 +40,27 @@ export default function ExperienceCard({ id, cardData, updateCard}) {
         </div>
         <div className="card-content">
             <div className="bullet-points">
-                <li>Bullet point 1</li>
-                <li>Bullet point 2</li>
-                <li>Bullet point 3</li>
+                <li>
+                    <EditableField
+                        value={cardData.firstBullet}
+                        onSave={(newValue) => updateCard("firstBullet", id, newValue)}
+                        placeholder={"Bullet Point 1"}
+                    />
+                </li>
+                <li>
+                    <EditableField
+                        value={cardData.secondBullet}
+                        onSave={(newValue) => updateCard("secondBullet", id, newValue)}
+                        placeholder={"Bullet Point 2"}
+                    />
+                </li>
+                <li>
+                    <EditableField
+                        value={cardData.thirdBullet}
+                        onSave={(newValue) => updateCard("thirdBullet", id, newValue)}
+                        placeholder={"Bullet Point 3"}
+                    />
+                </li>
             </div>
         </div>
     </div>
